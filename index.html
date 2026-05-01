@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumino - Agentic AI</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --amber-50: #FAEEDA;
+  --amber-75: #FAC775;
+  --amber-100: #EF9F27;
+  --amber-600: #BA7517;
+  --gray-900: #1a1a1a;
+  --gray-800: #2c2c2a;
+}
+
+body {
+  background: linear-gradient(135deg, var(--gray-900) 0%, #0f0f0f 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  max-width: 700px;
+  padding: 40px 20px;
+  z-index: 1;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.15;
+  animation: float 8s ease-in-out infinite;
+}
+
+.glow-orb-1 {
+  width: 300px;
+  height: 300px;
+  background: var(--amber-100);
+  top: -100px;
+  right: -100px;
+  animation-delay: 0s;
+}
+
+.glow-orb-2 {
+  width: 250px;
+  height: 250px;
+  background: var(--amber-100);
+  bottom: -50px;
+  left: -80px;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(20px); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(239, 159, 39, 0.4), 0 0 40px rgba(239, 159, 39, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(239, 159, 39, 0.6), 0 0 60px rgba(239, 159, 39, 0.3);
+  }
+}
+
+.logo {
+  font-size: 14px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #888888;
+  margin-bottom: 60px;
+  animation: fadeInUp 0.8s ease-out;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 72px;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.8s ease-out 0.1s both;
+  background: linear-gradient(135deg, var(--amber-75) 0%, var(--amber-100) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 0.8s ease-out 0.1s both, glow-pulse 3s ease-in-out 1.5s infinite;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #aaaaaa;
+  margin-bottom: 60px;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.coming-soon {
+  display: inline-block;
+  padding: 12px 32px;
+  border: 1.5px solid var(--amber-100);
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--amber-100);
+  background: rgba(239, 159, 39, 0.05);
+  margin-bottom: 60px;
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.coming-soon:hover {
+  background: rgba(239, 159, 39, 0.1);
+  box-shadow: 0 0 20px rgba(239, 159, 39, 0.2);
+}
+
+.cta-section {
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.email-input {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.email-input input {
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 14px;
+  width: 300px;
+  transition: all 0.3s ease;
+}
+
+.email-input input::placeholder {
+  color: #666666;
+}
+
+.email-input input:focus {
+  outline: none;
+  border-color: var(--amber-100);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 20px rgba(239, 159, 39, 0.15);
+}
+
+.email-input button {
+  padding: 14px 24px;
+  background: var(--amber-100);
+  border: 1px solid var(--amber-100);
+  border-radius: 4px;
+  color: var(--gray-900);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.email-input button:hover {
+  background: var(--amber-75);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(239, 159, 39, 0.3);
+}
+
+.email-input button:active {
+  transform: translateY(0);
+}
+
+.social-links {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  font-size: 13px;
+  color: #666666;
+}
+
+.social-links a {
+  color: #888888;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--amber-100);
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 48px;
+  }
+  
+  .subtitle {
+    font-size: 16px;
+  }
+  
+  .email-input {
+    flex-direction: column;
+  }
+  
+  .email-input input {
+    width: 100%;
+  }
+  
+  .glow-orb {
+    filter: blur(80px);
+  }
+}
+</style>
+</head>
+<body>
+<div class="glow-orb glow-orb-1"></div>
+<div class="glow-orb glow-orb-2"></div>
+
+<div class="container">
+  <div class="logo">Lumino</div>
+  
+  <h1>Agentic AI</h1>
+  
+  <p class="subtitle">Autonomous intelligence that powers the future</p>
+  
+  <div class="coming-soon">Coming soon</div>
+  
+  <div class="cta-section">
+    <div class="email-input">
+      <input type="email" placeholder="Enter your email" id="emailInput">
+      <button onclick="handleNotify()">Notify me</button>
+    </div>
+    
+    <div class="social-links">
+      <a href="#" onclick="event.preventDefault()">Twitter</a>
+      <a href="#" onclick="event.preventDefault()">LinkedIn</a>
+      <a href="#" onclick="event.preventDefault()">Discord</a>
+    </div>
+  </div>
+</div>
+
+<script>
+function handleNotify() {
+  const email = document.getElementById('emailInput').value;
+  if (email) {
+    alert('Thanks for signing up! We\'ll be in touch soon.');
+    document.getElementById('emailInput').value = '';
+  }
+}
+
+document.getElementById('emailInput').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    handleNotify();
+  }
+});
+</script>
+</body>
+</html>
