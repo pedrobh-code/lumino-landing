@@ -219,12 +219,35 @@ h1 {
   color: #f87171;
 }
 
+.unicorn-button {
+  display: inline-block;
+  padding: 14px 32px;
+  background: rgba(239, 159, 39, 0.15);
+  border: 1.5px solid var(--amber-100);
+  border-radius: 4px;
+  color: var(--amber-100);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  margin-top: 30px;
+}
+
+.unicorn-button:hover {
+  background: rgba(239, 159, 39, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(239, 159, 39, 0.3);
+}
+
 .social-links {
   display: flex;
   gap: 24px;
   justify-content: center;
   font-size: 13px;
   color: #666666;
+  margin-top: 40px;
 }
 
 .social-links a {
@@ -279,6 +302,8 @@ h1 {
       <input type="email" placeholder="Enter your email" id="emailInput">
       <button onclick="handleNotify()" id="submitBtn">Notify me</button>
     </div>
+    
+    <a href="https://unicornfactorylisboa.com/" class="unicorn-button">Get me a Unicorn</a>
     
     <div class="social-links">
       <a href="#" onclick="event.preventDefault()">Twitter</a>
